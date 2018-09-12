@@ -1,0 +1,55 @@
+html,
+body {
+  height: 100%;
+}
+.my-content {
+  position: absolute;
+  top: 44px;
+  bottom: 50px;
+  width: 100%;
+  background-color: #F5f5f5;
+}
+.my-content > .cate-list {
+  height: 100%;
+  width: 80px;
+  float: left;
+  position: relative;
+}
+.my-content > .cate-list .mui-scroll {
+  background-color: #fff;
+}
+.my-content > .cate-list .mui-scroll > a {
+  height: 45px;
+  line-height: 45px;
+  width: 100%;
+  display: block;
+  font-size: 14px;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+  border-right: 1px solid #e0e0e0;
+}
+.my-content > .cate-list .mui-scroll > a.active {
+  background-color: #F5f5f5;
+  border-right: 1px solid transparent;
+}
+.my-content > .cont-list {
+  position: relative;
+  height: 100%;
+  margin-left: 90px;
+}
+.my-content > .cont-list .brand {
+  width: 100%;
+  background-color: #fff;
+  margin-top: 10px;
+}
+.my-content > .cont-list .brand > li {
+  width: 33.33%;
+  float: left;
+}
+.my-content > .cont-list .brand > li > img {
+  width: 100%;
+}
+.my-content > .cont-list .brand > li > p {
+  text-align: center;
+}
+/*# sourceMappingURL=category.css.map */

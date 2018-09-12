@@ -1,0 +1,54 @@
+html,body{
+  height: 100%;
+}
+.my-content {
+  position: absolute;
+  top: 44px;
+  bottom: 50px;
+  width: 100%;
+  background-color: #F5f5f5;
+  >.cate-list {
+    height: 100%;
+    width: 80px;
+    float: left;
+    position: relative;
+    .mui-scroll {
+      background-color: #fff;
+      >a {
+        height: 45px;
+        width: 100%;
+        line-height: 45px;
+        width: 100%;
+        display: block;
+        font-size: 14px;
+        text-align: center;
+        border-bottom: 1px solid #e0e0e0;
+        border-right: 1px solid #e0e0e0;
+        &.active {
+          background-color: #F5f5f5;
+          border-right: 1px solid transparent;
+        }
+      }
+    }
+  }
+  >.cont-list {
+    position:relative;
+    height: 100%;
+    margin-left:  90px;
+    .brand {
+      width: 100%;
+      background-color: #fff;
+      margin-top: 10px;
+      >li{
+        width: 33.33%;
+        float: left;
+        >img{
+          width: 100%;
+        }
+        >p{
+          text-align: center;
+        }
+      }
+    }
+  }
+}

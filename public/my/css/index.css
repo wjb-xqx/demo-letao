@@ -1,22 +1,3 @@
-.my-header {
-  background-color: #006699;
-}
-.my-header > h1 {
-  color: #fff;
-}
-.my-header > .mui-icon-search {
-  color: #fff;
-}
-/*底部*/
-.my-footer {
-  background-color: #006699;
-}
-.my-footer > .mui-tab-item {
-  color: #fff;
-}
-.my-footer > .mui-tab-item.mui-active {
-  color: darkorange;
-}
 /*导航链接*/
 .nav-links {
   padding: 10px;
