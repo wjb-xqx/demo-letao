@@ -18,7 +18,7 @@ body {
 .my-content > .cate-list .mui-scroll {
   background-color: #fff;
 }
-.my-content > .cate-list .mui-scroll > a {
+.my-content > .cate-list .mui-scroll a {
   height: 45px;
   line-height: 45px;
   width: 100%;
@@ -28,7 +28,7 @@ body {
   border-bottom: 1px solid #e0e0e0;
   border-right: 1px solid #e0e0e0;
 }
-.my-content > .cate-list .mui-scroll > a.active {
+.my-content > .cate-list .mui-scroll a.active {
   background-color: #F5f5f5;
   border-right: 1px solid transparent;
 }

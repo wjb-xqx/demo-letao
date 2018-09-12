@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="css/base.css">
 	<link rel="stylesheet" href="css/category.css">
 	<script src="assets/zepto/zepto.min.js"></script>
+	<script src="assets/artTemplate/template-native.js"></script>
 	<script src="js/category.js"></script>
 	<script src="assets/mui/js/mui.min.js"></script>
 </head>
@@ -40,22 +41,9 @@
 	<div class="cate-list">
 		<div class="mui-scroll-wrapper">
 			<div class="mui-scroll">
-				<a href="javascript:;" class="active">运动馆</a>
-				<a href="javascript:;">女士馆</a>
-				<a href="javascript:;">男士馆</a>
-				<a href="javascript:;">户外馆</a>
-				<a href="javascript:;">运动馆</a>
-				<a href="javascript:;">女士馆</a>
-				<a href="javascript:;">男士馆</a>
-				<a href="javascript:;">户外馆</a>
-				<a href="javascript:;">运动馆</a>
-				<a href="javascript:;">女士馆</a>
-				<a href="javascript:;">男士馆</a>
-				<a href="javascript:;">户外馆</a>
-				<a href="javascript:;">运动馆</a>
-				<a href="javascript:;">女士馆</a>
-				<a href="javascript:;">男士馆</a>
-				<a href="javascript:;">户外馆</a>
+				<div class="links" id="links">
+
+				</div>
 			</div>
 		</div>
 	</div>
@@ -63,30 +51,52 @@
 		<div class="mui-scroll-wrapper">
 			<div class="mui-scroll">
 				<ul class="brand mui-clearfix">
-					<li>
-						<img src="./images/brand1.png" alt="">
-						<p>耐克</p>
-					</li>
-					<li>
-						<img src="./images/brand2.png" alt="">
-						<p>耐克</p>
-					</li>
-					<li>
-						<img src="./images/brand3.png" alt="">
-						<p>耐克</p>
-					</li>
-					<li>
-						<img src="./images/brand4.png" alt="">
-						<p>耐克</p>
-					</li>
-					<li>
-						<img src="./images/brand5.png" alt="">
-						<p>耐克</p>
-					</li>
+					<!--<li>-->
+						<!--<img src="./images/brand1.png" alt="">-->
+						<!--<p>耐克</p>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<img src="./images/brand2.png" alt="">-->
+						<!--<p>耐克</p>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<img src="./images/brand3.png" alt="">-->
+						<!--<p>耐克</p>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<img src="./images/brand4.png" alt="">-->
+						<!--<p>耐克</p>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<img src="./images/brand5.png" alt="">-->
+						<!--<p>耐克</p>-->
+					<!--</li>-->
 				</ul>
 			</div>
 		</div>
 	</div>
 </div>
+<!--<script id="category-first" type="text/template">-->
+  <!--{{each list}}-->
+ 		 <!--<a href="#">{{$value.categoryName}}</a>-->
+  <!--{{/each}}-->
+<!--</script>-->
+<script id="first-tip" type="text/template">
+	<% for(var i=0;i<data.length;i++){ %>
+	<a href="javascript:;" data-id="<%=data[i].id %>" class="items getSecond"><%= data[i].categoryName %></a>
+	<% } %>
+</script>
+<script id="two-tip" type="text/template">
+	<li>
+		<img src="./images/brand1.png" alt="">
+		<p>耐克</p>
+	</li>
+	{{each res}}
+	<li>
+		<img src="{{$value.brandLogo}}" alt="">
+		<p>{{$value.brandName}}</p>
+	</li>
+	{{/each}}
+</script>
 </body>
 </html>
