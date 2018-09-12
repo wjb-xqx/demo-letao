@@ -10,18 +10,4 @@ $(function(){
             $("#links").html(html);
         }
     })
-    $("#links").on("click","a",function(){
-        var id = $(this).attr("data-id");
-        $.ajax({
-            url:"/category/querySecondCategory",
-            type:"get",
-            data:{
-                id:id
-            },
-            success:function(res){
-                  var html =  template("two-tip",res);
-                    $(".brand").html(html);
-            }
-        })
-    })
 })
