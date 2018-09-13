@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/search-result.css">
+    <script src="assets/zepto/zepto.min.js"></script>
+    <script src="js/search-result.js"></script>
+    <script src="assets/artTemplate/template-native.js"></script>
     <script src="assets/mui/js/mui.min.js"></script>
 </head>
 <body>
@@ -46,61 +49,27 @@
         </div>
     </div>
         <div class="product">
-            <ul>
-                <li>
-                    <a href="javascript:;">
-                        <img src="./images/product.jpg" alt="">
-                        <span class="name">
-                        adidas阿迪达斯 男式 场下休闲篮球鞋S83700
-                    </span>
-                        <p>
-                            <span>$560</span>
-                            <span>$888</span>
-                        </p>
-                        <span class="buy-now">立即购买</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:;">
-                        <img src="./images/product.jpg" alt="">
-                        <span class="name">
-                        adidas阿迪达斯 男式 场下休闲篮球鞋S83700
-                    </span>
-                        <p>
-                            <span>$560</span>
-                            <span>$888</span>
-                        </p>
-                        <span class="buy-now">立即购买</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript::">
-                        <img src="./images/product.jpg" alt="">
-                        <span class="name">
-                        adidas阿迪达斯 男式 场下休闲篮球鞋S83700
-                    </span>
-                        <p>
-                            <span>$560</span>
-                            <span>$888</span>
-                        </p>
-                        <span class="buy-now">立即购买</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:;">
-                        <img src="./images/product.jpg" alt="">
-                        <span class="name">
-                        adidas阿迪达斯 男式 场下休闲篮球鞋S83700
-                    </span>
-                        <p>
-                            <span>$560</span>
-                            <span>$888</span>
-                        </p>
-                        <span class="buy-now">立即购买</span>
-                    </a>
-                </li>
+            <ul class="search-box">
+
             </ul>
         </div>
 </div>
+<script id="searchTpl" type="text/template">
+    <% for(var i=0;i< data.length;i++){ %>
+    <li>
+        <a href="#">
+            <img src="<%=data[i].pic[0].picAddr %>">
+            <span class="name">
+						<%=data[i].proName %>
+					</span>
+            <p>
+                <span>¥<%=data[i].price %></span>
+                <span>¥<%=data[i].oldPrice %></span>
+            </p>
+            <span class="buy-now">立即购买</span>
+        </a>
+    </li>
+    <% } %>
+</script>
 </body>
 </html>
