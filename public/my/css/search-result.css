@@ -1,0 +1,16 @@
+.filter {
+  width: 100%;
+  margin-top: 10px;
+  height: 30px;
+  line-height: 30px;
+  padding: 0px 10px;
+  font-size: 16px;
+}
+.filter > div {
+  text-align: center;
+  background-color: #ccc;
+}
+.filter > div > .mui-icon {
+  font-size: 14px;
+}
+/*# sourceMappingURL=search-result.css.map */
