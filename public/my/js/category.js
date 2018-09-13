@@ -5,9 +5,31 @@ $(function(){
     $.ajax({
         url:"/category/queryTopCategory",
         type:'get',
-        success:function(result){
-            var html =  template('first-tip',{data:result.rows});
+        success:function(res){
+            var html =  template('first-tip',{result:res.rows});
             $("#links").html(html);
+            if (res.rows.length){
+                var id = res.rows[0].id;
+                $("#links").find("a").eq(0).addClass("active");
+                getSecondCategory(id);
+            }
         }
     })
+    // 点击有自己分类跳转二级分类
+    $("#links").on("click","a",function(){
+        var id = $(this).attr("data-id");
+        $(this).addClass("active").siblings().removeClass("active");
+        getSecondCategory(id);
+    })
 })
+function getSecondCategory(id){
+    $.ajax({
+        url:"/category/querySecondCategory",
+        type:"get",
+        data:{id:id},
+        success:function(result){
+            var html =  template('two-tip',result);
+            $(".brand").html(html);
+        }
+    })
+}

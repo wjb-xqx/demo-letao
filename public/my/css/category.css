@@ -42,14 +42,19 @@ body {
   background-color: #fff;
   margin-top: 10px;
 }
+.my-content > .cont-list .brand .noresult {
+  padding: 10px;
+  font-size: 14px;
+  color: red;
+}
 .my-content > .cont-list .brand > li {
   width: 33.33%;
   float: left;
 }
-.my-content > .cont-list .brand > li > img {
+.my-content > .cont-list .brand > li img {
   width: 100%;
 }
-.my-content > .cont-list .brand > li > p {
+.my-content > .cont-list .brand > li p {
   text-align: center;
 }
 /*# sourceMappingURL=category.css.map */
