@@ -1,6 +1,8 @@
 var proName =  getParamsByUrl(location.href,'word');
 var page = 1;
 var  html = '';
+var priceSort = 1;  //升序
+var numSort =1;
 $(function(){
     mui.init({
         pullRefresh : {
@@ -14,6 +16,23 @@ $(function(){
             }
         }
     });
+
+    // 价格排序
+    $("#priceSort").on("tap",function(){
+        priceSort =priceSort ==1 ? 2 :1;
+        html = '';
+        page =1;
+        mui('#refreshContainer').pullRefresh().refresh(true);
+        getData();
+    })
+    $("#numSort").on("tap",function(){
+        numSort =numSort ==1 ? 2 :1;
+        html = '';
+        page =1;
+        priceSort = 1;
+        mui('#refreshContainer').pullRefresh().refresh(true);
+        getData();
+    })
 })
 function getParamsByUrl(url,name){
    var word =url.substr(url.indexOf("?")+1);
@@ -36,7 +55,9 @@ function getData(){
         data: {
            page: page++,
             pageSize: 3,
-            proName:proName
+            proName:proName,
+            price:priceSort,
+            num:numSort
        },
         success:function(res){
             if (res.data.length >0){
