@@ -29,4 +29,7 @@
   float: right;
   line-height: normal;
 }
+.history > .history-box {
+  border-bottom: 1px solid transparent;
+}
 /*# sourceMappingURL=search.css.map */
