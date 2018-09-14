@@ -1,33 +1,52 @@
-$(function () {
-
-    getParamsByUrl(location.href,'keyword');
-    getData();
-
+var proName =  getParamsByUrl(location.href,'word');
+var page = 1;
+var  html = '';
+$(function(){
+    mui.init({
+        pullRefresh : {
+            container:"#refreshContainer",//待刷新区域标识，querySelector能定位的css选择器均可，比如：id、.class等
+            up : {
+                height:50,//可选.默认50.触发上拉加载拖动距离
+                auto:true,//可选,默认false.自动上拉加载一次
+                contentrefresh : "正在加载...",//可选，正在加载状态时，上拉加载控件上显示的标题内容
+                contentnomore:'没有更多数据了',//可选，请求完毕若没有更多数据时显示的提醒内容；
+                callback : getData //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+            }
+        }
+    });
 })
-//获取搜索页传来的搜索数据,找对应的数据显示 封装成函数
-function getParamsByUrl(url,name) {
-    var params = url.substr(url.indexOf('?')+1);
-    var param = params.split("&");
-    for (var i =0; i<param.length; i++){
-       var current = param[i].split("=");
-       if (current[0] == name){
-           return  current[1];
+function getParamsByUrl(url,name){
+   var word =url.substr(url.indexOf("?")+1);
+   var words = word.split("&");
+   for (var i = 0;i < words.length; i ++ ){
+       var curr = words[i].split("=");
+       if (curr[0] == name ){
+           return curr[1];
        }
-    }
-    return null;
+   }
+   return null;
 }
-function getData() {
+function getData(){
+    if(!This){
+        This = this;
+    }
     $.ajax({
         url: '/product/queryProduct',
         type: 'get',
         data: {
-            page: 1,
-            pageSize: 6,
-        },
-        success:function(response){
-            console.log(response);
-            var html =template('searchTpl', response);
-            $(".search-box").html(html);
+           page: page++,
+            pageSize: 3,
+            proName:proName
+       },
+        success:function(res){
+            if (res.data.length >0){
+                html += template("searchTpl",res);
+                $(".search-box").html(html);
+                This.endPullupToRefresh(false);
+            }else {
+                // 告诉上拉加载组件当前数据加载完毕
+                This.endPullupToRefresh(true);
+            }
         }
     })
 }
