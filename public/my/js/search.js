@@ -43,7 +43,7 @@ $(function(){
         $(".history-box").html(html);
     }
     $(".history-box").on("click","li",function(){
-        var word = $(this).val()
+        var word = $(this).html();
         location.href = "search-result.html?word="+ word;
     })
     $(".clear").on("click",function(){

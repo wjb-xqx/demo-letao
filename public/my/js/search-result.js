@@ -46,7 +46,8 @@ function getParamsByUrl(url,name){
    return null;
 }
 function getData(){
-    if(!This){
+    if(!This){   //第一次调用时mui的对象   如果自身调用后面没有This.endPullupToRefresh(true);方法
+        // 所以会报错,此时要走一个判断,要让this正确的指向
         This = this;
     }
     $.ajax({
@@ -60,14 +61,18 @@ function getData(){
             num:numSort
        },
         success:function(res){
-            if (res.data.length >0){
+            // if (res.data.length >0){
+            //     html += template("searchTpl",res);
+            //     $(".search-box").html(html);
+            //     This.endPullupToRefresh(false); // 没有数据,隐藏文字
+            // }else {
+            //     // 告诉上拉加载组件当前数据加载完毕
+            //     This.endPullupToRefresh(true);
+            // }
+            //  以下为优化
                 html += template("searchTpl",res);
                 $(".search-box").html(html);
-                This.endPullupToRefresh(false);
-            }else {
-                // 告诉上拉加载组件当前数据加载完毕
-                This.endPullupToRefresh(true);
-            }
+                This.endPullupToRefresh(res.data.length == 0);
         }
     })
 }
